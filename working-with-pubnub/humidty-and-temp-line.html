@@ -1,0 +1,92 @@
+<script
+  type="text/javascript"
+  src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"
+></script>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"
+/>
+<h1 align="center">Humidity Readings</h1>
+<div id="chartHum"></div>
+<script>
+  var __eon_pubnub = new PubNub({
+    subscribeKey: "sub-c-d66fe224-d493-11e9-bcc0-82128b712eba"
+  });
+  chart = eon.chart({
+    pubnub: __eon_pubnub,
+    history: true,
+    limit: 100,
+    channels: ["humeon"],
+    flow: true,
+    generate: {
+      bindto: "#chartHum",
+      data: {
+        type: "spline",
+        x: "x",
+        labels: false
+      },
+      transition: {
+        duration: 250
+      },
+      color: {
+        pattern: ["#FF0000", "#F6C600", "#60B044"],
+        threshold: {
+          values: [50, 52, 55]
+        }
+      },
+      tooltip: {
+        show: true
+      },
+      point: {
+        show: true
+      },
+      axis: {
+        x: {
+          type: "timeseries",
+          tick: {
+            format: "%H:%M:%S"
+          }
+        }
+      }
+    },
+    transform: function(data) {
+      return { eon: { Humidity: data.humidity } };
+    }
+  });
+</script>
+<h1 align="center">Temperature Readings</h1>
+<div id="chartTemp"></div>
+
+<script>
+  var __eon_pubnub = new PubNub({
+    subscribeKey: "sub-c-d66fe224-d493-11e9-bcc0-82128b712eba"
+  });
+  chart = eon.chart({
+    pubnub: __eon_pubnub,
+    history: true,
+    limit: 100,
+    rate: 1000,
+    channels: ["tempeon"],
+    flow: true,
+    generate: {
+      bindto: "#chartTemp",
+      data: {
+        x: "x",
+        labels: false
+      },
+
+      axis: {
+        x: {
+          type: "timeseries",
+          tick: {
+            format: "%H:%M:%S"
+          }
+        }
+      }
+    },
+    transform: function(data) {
+      return { eon: { Temperature: data.temperature_celcius } };
+    }
+  });
+</script>

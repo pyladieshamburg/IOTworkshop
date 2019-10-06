@@ -17,3 +17,21 @@ Or on this [Headless setup blog](https://desertbot.io/blog/headless-raspberry-pi
 - Discover the IP, as a lot of pis will be connected to wifi here we cannot use the hostname so here try to discover it via ip search described in the pyladies repo.. or we do this one at a time
 - Change the hostname of your raspberry pi
 - Update software
+
+## Linking to your Github account
+
+On the raspberry pi create a private/public key pair:
+
+```bash
+ssh-keygen -t rsa
+```
+
+(enter through everything with empty password).
+
+Your public key is created in .ssh/id_rsa.pub which you can print with the cat command:
+
+```bash
+cat .ssh/id_rsa.pub
+```
+
+Copy the output and add it to your github account under settings/SSH and GPG keys. Like this you can access your github repos from the raspberry pi without having to login all the time.
