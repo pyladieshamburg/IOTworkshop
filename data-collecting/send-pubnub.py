@@ -7,6 +7,9 @@ from pubnub.exceptions import PubNubException
 import Adafruit_DHT as dht
 import configparser
 
+#import logging
+#logging.basicConfig(filename='temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO) 
+
 
 config = configparser.ConfigParser()
 config.read('pubnub.ini')
@@ -36,6 +39,8 @@ while True:
                 'humidity': h
             }).sync()
         print("publish timetoken: %d" % envelope.result.timetoken)
+        #logging
+        #logging.info('Temp={0:0.1f} C and Humidity={1:0.1f} %'.format(t, h)) 
         #wait 5 mins
         time.sleep(300)
     except PubNubException as e:
