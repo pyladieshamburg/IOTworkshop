@@ -8,7 +8,7 @@ import Adafruit_DHT as dht
 import configparser
 
 #import logging
-#logging.basicConfig(filename='temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO) 
+#logging.basicConfig(filename='/home/pi/logs/weather/temperature.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO) 
 
 
 config = configparser.ConfigParser()
