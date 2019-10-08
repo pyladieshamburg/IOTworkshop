@@ -1,0 +1,16 @@
+name: weather
+channels:
+  - defaults
+dependencies:
+  - python>=3.6.8
+  - scikit-learn>=0.19.1
+  - numpy>=1.14.3
+  - scipy
+  - pandas>=0.22.0
+  - jupyterlab
+  - matplotlib
+  - plotly
+  - ipywidgets
+  - statsmodels
+  - pystan
+  - fbprophet
