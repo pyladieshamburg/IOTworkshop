@@ -2,11 +2,11 @@
 
 In order to actually make use of this data it would be really cool to store it. There are endless ways to do this in various types of databases in more or less complex ways.
 
-One way to do this though, bringing us in the devopsy realm, is with [influxdb](https://www.influxdata.com), [telegraf](https://www.influxdata.com/time-series-platform/telegraf/) and [grafana](https://grafana.com) (we describe this part in the visualization module), following steps from this [tutorial](https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/) with some modifications as of course things are updated super fast in this day and age.
+One way to do this though, bringing us in the devopsy realm, is with [influxdb](https://www.influxdata.com), [telegraf](https://www.influxdata.com/time-series-platform/telegraf/) and [grafana](https://grafana.com) (we describe this part later in the second [visualization module](../data-visualization/2-grafana.md)), following steps from this [tutorial](https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/) with some modifications as of course things are updated super fast in this day and age.
 
 InfluxDb is a time series database thus ideal for collecting sensor data and other metrics like CPU and Memory Usage. Writing directly to influxdb is a bit more work that we will circumvent by writing to a log file from which we will read via telegraf.
 
-First of all we will uncomment the lines of code in our send-pubnub.py script that refer to logging, we basically will thus log the measurements and keep sending them to pubnub. We will log them into a log file we specify. (Also check that this is added to .gitignore)
+First of all we will uncomment the lines of code in our `send-pubnub.py` script that refer to logging. This means that we will log the measurements and at the same time keep sending them to pubnub. We will log them into a log file which we specify. (Its also important to check that this log file is added to .gitignore)
 
 Create a new folder for the logs:
 
@@ -48,7 +48,7 @@ sudo service influxdb start
 sudo service influxdb status
 ```
 
-For telegraf we need to find the suitable version and [download](https://github.com/influxdata/telegraf/releases) it, somthing with armhf for Debian.
+For telegraf we need to find the suitable version and [download](https://github.com/influxdata/telegraf/releases) it, something with armhf for Debian.
 
 By running
 
@@ -78,7 +78,7 @@ use nohub to run in the background
 
 # Checking out the data
 
-If it all works we should be able to look at the data. If localhost:8086 renders a 404 then it means InfluxDb works.
+If it all works we should be able to look at the data. <b>If localhost:8086 renders a 404 then it means InfluxDb works.</b>
 
 From command line run:
 
@@ -96,3 +96,5 @@ To export data from influx you can run:
 ```bash
 influx -database 'temperature' -execute 'SELECT * FROM measurements' -format csv > test.csv
 ```
+
+It will be exported to a file called `test.csv`.
