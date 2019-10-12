@@ -23,7 +23,7 @@ You should now fork this repo.
 git clone git@github.com:pyladieshamburg/IOTworkshop.git
 ```
 
-On your pubnub account create a new key set where you specify 7 days of storage. Create your pubnub.ini with your settings, using the template format. Update the html file with your subscriber key. As we are only publishing weather data we will leave this now in html in plain sight. Do not do this with any other data.
+On your pubnub account create a new key set where you specify 7 days of storage. Create your pubnub.ini with your settings, using the template format (template file is in this directory among with others: [pubnub_template.ini](./pubnub_template.ini)). Later (in visualization section) you will need to update the html file with your subscriber key. As we are only publishing weather data we will leave this now in html in plain sight. Do not do this with any other data.
 
 Clone your forked repo to your Raspberry Pi.
 
