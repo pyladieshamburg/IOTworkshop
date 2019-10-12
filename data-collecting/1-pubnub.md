@@ -45,7 +45,11 @@ If we now close the python repl, or disconnect from the raspberry pi our python 
 There are several tools for this and we will look now at [supervisor](https://uctrl.dev/raspberry-pi-iot-setup/).
 And more info on what we can do with it at this [blog](https://medium.com/@jayden.chua/use-supervisor-to-run-your-python-tests-13e91171d6d3).
 
-Following the instructions, install supervisor and update the config (using [user pi](https://www.makeuseof.com/tag/raspbian-default-password/)).
+First you need to install supervisor on your RaspberryPi with the following command
+```
+$ sudo apt-get install supervisor
+```
+Now you can create the config in the following path with the content shown below (using [user pi](https://www.makeuseof.com/tag/raspbian-default-password/)).
 
 ```
 bash
