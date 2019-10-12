@@ -47,13 +47,15 @@ And more info on what we can do with it at this [blog](https://medium.com/@jayde
 
 Following the instructions, install supervisor and update the config (using [user pi](https://www.makeuseof.com/tag/raspbian-default-password/)).
 
+> If you cloned repo not to the home directory (`~/` which is really `/home/pi`) don't forget to edit the path in the config below!
+
 ```
 bash
 sudo vim /etc/supervisor/conf.d/data-collector.conf
 
 [program:data-collector]
 command=python3 send-pubnub.py
-directory=/home/pi/repos/iotworkshop/starting-small
+directory=/home/pi/IOTworkshop/data-collecting
 autostart=true
 autorestart=true
 user=pi
@@ -71,4 +73,4 @@ supervisor > add data-collector
 supervisor > status
 ```
 
-If you want you can also add the supervisor gui, by editing the config.
+If you want you can also add the supervisor gui, by editing the config (just follow instructions from blog-post mentioned before).
