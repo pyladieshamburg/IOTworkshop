@@ -25,3 +25,31 @@ For visualizing the data and setting up a static website check the instructions 
 
 For collecting data locally on the rpi follow instruction in [data-collecting-v2](data-collecting/2-influxdb.md).
 For installing and seting up a grafana dashboard follow the instructions in [data-visualization-v2](data-visualization/2-grafana.md).
+
+
+### A few useful Git commands
+
+During the workshop we made individual forks of the PyLadies Hamburg version of this repo. Changes made to the original version will not automatically be updated in our forks. To update our fork we can use the following commands to pull from the "upstream" repo.
+
+```bash
+# set the upstream
+git remote add upstream https://github.com/pyladieshamburg/IOTworkshop.git
+# to check this run
+git remote -v
+# the output should look like this
+> origin    https://github.com/<YOUR_USERNAME>/IOTworkshop.git (fetch)
+> origin    https://github.com/<YOUR_USERNAME>/IOTworkshop.git (push)
+> upstream  https://github.com/pyladieshamburg/IOTworkshop.git (fetch)
+> upstream  https://github.com/pyladieshamburg/IOTworkshop.git (push)
+# origin is your fork, upstream is the original pyladieshamburg version
+# fetch upstream
+git fetch upstream
+# merge changes from upstream to our fork
+git merge upstream/master
+# note if you have changes to your fork you have not yet commited you may be asked to commit or stash them.
+# to stash run
+git stash
+# once you have successfully merged the upstream following the instructions above you can get those change back with
+git stash pop
+```
+Because we found a few typos we reccomend you do this when you are at home after the workshop, so you have the latest changes :smile:
