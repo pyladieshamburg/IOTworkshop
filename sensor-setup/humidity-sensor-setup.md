@@ -66,6 +66,8 @@ This basically will work when we hook up the sensor, by connecting it to pin 4 a
 
 ## The Hardware part
 
+> Before you do anything with the sensors you need to cut off Raspberry Pi power!  Otherwise, there is a risk that you will damage sensor or even Raspberry Py during installation.
+
 The 40 GPIO pins above the Raspberry Pi logo an important connection point of our Raspberry Pi to the outside world.
 The GPIO pins allow us to control electric circuits from the Raspberry Pi.
 We thereby can control all kinds of devices and, in particular, receive data from sensors.
