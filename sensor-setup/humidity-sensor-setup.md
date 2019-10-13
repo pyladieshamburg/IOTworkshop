@@ -82,7 +82,7 @@ The other pins in blue, green, pink and orange are all general purpose pins that
 The non-orange ones of the pins can also communicate with special interfaces using the appropriate protocols, on top of their general purpose.
 The two grey ones are reserved for other special use cases that aren't of our concern here.
 
-For the sensor setup, we'll be using pins number 2 (5V), 4 (GND) and 7 (GPIO4).
+For the sensor setup, we'll be using pins number 2 (5V), 6 (GND) and 7 (GPIO4).
 We'll connect pin 2 (5V) to the sensor's positive pole and pin 4 (GND) to its negative pole, thus forming the basis for an electric circuit.
 Pin 7 (GPIO4) will connect to the sensor's signal pin so that we can get readings.
 Between the sensors positive pole and the signal pin we will also add the resistor.
