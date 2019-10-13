@@ -39,13 +39,28 @@ sudo service supervisor restart data-collector
 Installation steps on the Raspberry Pi.
 
 ```bash
-wget -qO- https://repos.influxdata.com/influxdb.key | sudo tee /etc/apt/sources.list.d/influxdb.list test $VERSION_ID = "8" && echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list test $VERSION_ID = "9" && echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+#Add the InfluxData repository configuration
+# Instruction taken from https://www.circuits.dk/install-grafana-influxdb-raspberry/
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/os-release
+test $VERSION_ID = "7" && echo "deb https://repos.influxdata.com/debian wheezy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+test $VERSION_ID = "8" && echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+test $VERSION_ID = "9" && echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 
+# Install InfluxDB
 sudo apt-get update && sudo apt-get install influxdb
+# Start InfluxDB
 sudo service influxdb start
 
 #verify influxdb is running with the following command.
 sudo service influxdb status
+
+# You should an output something like this:
+● influxdb.service - InfluxDB is an open-source, distributed, time series database
+   Loaded: loaded (/lib/systemd/system/influxdb.service; enabled; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: https://docs.influxdata.com/influxdb/
+
 ```
 
 For telegraf we need to find the suitable version and [download](https://github.com/influxdata/telegraf/releases) it, something with armhf for Debian.
@@ -71,10 +86,10 @@ Telegraf parses log data via grok, which is a powerful parser used by all sorts 
 To run this telegraf:
 
 ```bash
-nohub telegraf --config temperature-logging.conf
+nohup telegraf --config temperature-logging.conf
 ```
 
-use nohub to run in the background
+We are using [nohup](https://linux.die.net/man/1/nohup) to run the command in the background
 
 # Checking out the data
 
