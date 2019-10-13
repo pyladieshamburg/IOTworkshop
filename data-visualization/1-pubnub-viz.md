@@ -1,6 +1,8 @@
 ## First Dashboard
 
-You can now locally open the [dashboard](humidty-and-temp-line.html) in your browser. Feel free to experiment with this.. it's written in java script using the EON PubNub project.
+To open dashboard with your data locally you can clone this repository to your computer (just like we copied it on Raspberry Pi before). You will need [html file](humidty-and-temp-line.html) with dashboard description. Don't forget to replace `subscribeKey` as we mentioned before (it appears twice in this file)!
+
+You can now locally open the [dashboard](humidty-and-temp-line.html) in your browser. Feel free to experiment with this. it's written in java script using the EON PubNub project.
 
 #### Let's publish this page!
 
