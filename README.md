@@ -26,7 +26,6 @@ For visualizing the data and setting up a static website check the instructions 
 For collecting data locally on the rpi follow instruction in [data-collecting-v2](data-collecting/2-influxdb.md).
 For installing and seting up a grafana dashboard follow the instructions in [data-visualization-v2](data-visualization/2-grafana.md).
 
-
 ### A few useful Git commands
 
 During the workshop we made individual forks of the PyLadies Hamburg version of this repo. Changes made to the original version will not automatically be updated in our forks. To update our fork we can use the following commands to pull from the "upstream" repo.
@@ -52,4 +51,11 @@ git stash
 # once you have successfully merged the upstream following the instructions above you can get those change back with
 git stash pop
 ```
+
 Because we found a few typos we reccomend you do this when you are at home after the workshop, so you have the latest changes :smile:
+
+# Visual Checklist
+
+Checkout the [Checklist](PyLadiesIoTWorkshop.pdf)!!
+
+[embed]PyLadiesIoTWorkshop.pdf[/embed]
