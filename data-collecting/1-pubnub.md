@@ -49,9 +49,23 @@ Update the html file with your subscriber key. The html file has two lines that 
 
 As we are only publishing weather data we will leave this now in html in plain sight. Do not do this with any other data.
 
+
 **Adding the information to your RaspberryPi:**
 
 Add this Github directory to your Raspberry. You can either clone it again in your Rasp or just copy and paste your current directory there.
+
+```bash
+git clone ..repo link..
+cd IOTworkshop
+```
+
+Create your _pubnub.ini_ with your settings, using the template format (template file is in this directory among with others: [pubnub_template.ini](./pubnub_template.ini)) by running this on the raspberry pi
+
+```bash
+cd data-collecting
+cp pubnub_template.ini pubnub.ini #this will copy the template into a new file
+nano (or vim) pubnub.ini
+```
 
 Copy the `pubnub.ini` to your RaspberryPi, it will not be part of the repo.
 
@@ -67,7 +81,7 @@ This will publish data every 5 minutes.
 
 Pro tip: you can change the update frequency by changing the `time.sleep(300)` function. 300 here stands for 300 seconds.
 
-
+This will publish data every 5 minutes and print that.
 
 ## Running continuously
 
@@ -76,15 +90,54 @@ If we now close the python repl, or disconnect from the raspberry pi our python 
 There are several tools for this and we will look now at [supervisor](https://uctrl.dev/raspberry-pi-iot-setup/).
 And more info on what we can do with it at this [blog](https://medium.com/@jayden.chua/use-supervisor-to-run-your-python-tests-13e91171d6d3).
 
-Following the instructions, install supervisor and update the config (using [user pi](https://www.makeuseof.com/tag/raspbian-default-password/)).
+### Installation
+
+First you need to install supervisor on your RaspberryPi with the following command
+
+```
+$ sudo apt-get install supervisor
+$ sudo supervisord
+```
+
+Basic commands to check the status of supervisor and start it or stop it
+
+```bash
+# Checking the status of supervisor
+$ sudo service supervisor status
+# Staring supervisor
+$ sudo service supervisor start
+# Stopping and restarting supervisor
+$ sudo service supervisor stop
+$ sudo service supervisor restart
+
+```
+
+(optional) Setting up the Web Interface for supervisor.
+
+```bash
+$ vim /etc/supervisor/supervisord.conf # you can use nano instead of vim
+# in the editor add at the end:
+[inet_http_server]
+port=*:9001
+username=testuser # choose a simple local user and password
+password=testpass
+```
+
+You can access this now on http://newname.local:9001
+
+### Configuring your service
+
+Now you can create the config in the following path with the content shown below (using [user pi](https://www.makeuseof.com/tag/raspbian-default-password/)).
+
+> If you cloned repo not to the home directory (`~/` which is really `/home/pi`) don't forget to edit the path in the config below!
 
 ```
 bash
-sudo vim /etc/supervisor/conf.d/data-collector.conf
+$ sudo vim /etc/supervisor/conf.d/data-collector.conf # you can use nano instead of vim
 
 [program:data-collector]
 command=python3 send-pubnub.py
-directory=/home/pi/repos/iotworkshop/starting-small
+directory=/home/pi/IOTworkshop/data-collecting
 autostart=true
 autorestart=true
 user=pi
@@ -93,13 +146,9 @@ user=pi
 Starting the service from cli:
 
 ```bash
-sudo supervisorctl
-```
+$ sudo supervisorctl
 
-```bash
 supervisor > reread
 supervisor > add data-collector
 supervisor > status
 ```
-
-If you want you can also add the supervisor gui, by editing the config.

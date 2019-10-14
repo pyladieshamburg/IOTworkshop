@@ -8,7 +8,7 @@ InfluxDb is a time series database thus ideal for collecting sensor data and oth
 
 First of all we will uncomment the lines of code in our `send-pubnub.py` script that refer to logging. This means that we will log the measurements and at the same time keep sending them to pubnub. We will log them into a log file which we specify. (Its also important to check that this log file is added to .gitignore)
 
-Create a new folder for the logs:
+Create a new folder for the logs on your RaspberryPi run the following command:
 
 ```bash
 mkdir -p /home/pi/logs/weather/
