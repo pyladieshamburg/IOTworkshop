@@ -56,6 +56,6 @@ Because we found a few typos we reccomend you do this when you are at home after
 
 # Visual Checklist
 
-Checkout the [Checklist](PyLadiesIoTWorkshop.pdf)!!
+Checkout the [Checklist](./PyLadiesIoTWorkshop.pdf)!!
 
-[embed]PyLadiesIoTWorkshop.pdf[/embed]
+[embed]./PyLadiesIoTWorkshop.pdf[/embed]
