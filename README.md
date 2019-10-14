@@ -12,8 +12,8 @@ Tools you need for this workshop:
 - DHT22 sensor from Adafruit with 10ohm resistor
 - 3 connecting wires
 
-For setting up the raspberry Pi follow the instructions in [pi-setup](pi-setup/initial-setup.md)
-For setting up the sensor follow the instructions in [pi-setup](sensor-setup/humidity-sensor-setup.md)
+For setting up the raspberry Pi follow the instructions in [0_pi-setup](pi-setup/initial-setup.md)
+For setting up the sensor follow the instructions in [1_sensor-setup](sensor-setup/humidity-sensor-setup.md)
 
 ### Part 1
 
