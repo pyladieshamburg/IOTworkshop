@@ -11,33 +11,35 @@ Log in and run these commands:
 Python 3 and pip in case they are missing
 
 ```bash
-sudo apt-get update
-sudo apt-get install python3-dev python3-setuptools build-essential
-sudo apt-get install python3-pip
+$ sudo apt-get update
+$ sudo apt-get install python3-dev python3-setuptools build-essential
+$ sudo apt-get install python3-pip
 ```
 
 Git: we will need this for sure for when we get lots of code
 
 ```bash
-sudo apt-get install git-core
+$ sudo apt-get install git-core
 ```
 
 Python Packages
 
 ```bash
-python3 -m pip install --upgrade pip setuptools wheel
-sudo pip3 install Adafruit_DHT
+$ python3 -m pip install --upgrade pip setuptools wheel
+$ sudo pip3 install Adafruit_DHT
 ```
 
 Vim or nano: unless you want to explore the ssh connection capabilities of your favored code editor.
 
 ```bash
-sudo apt-get install vim
+$ sudo apt-get install vim
 ```
 
 A recommended minimal configuration to be put in a file named .vimrc in your Raspberry Pi's home directory would be :
 
 ```
+$ vim .vimrc
+
 set nocompatible
 set tabstop=4
 set shiftwidth=4
@@ -66,7 +68,7 @@ This basically will work when we hook up the sensor, by connecting it to pin 4 a
 
 ## The Hardware part
 
-> Before you do anything with the sensors you need to cut off Raspberry Pi power!  Otherwise, there is a risk that you will damage sensor or even Raspberry Py during installation.
+> Before you do anything with the sensors you need to cut off Raspberry Pi power! Otherwise, there is a risk that you will damage sensor or even Raspberry Py during installation.
 
 The 40 GPIO pins above the Raspberry Pi logo an important connection point of our Raspberry Pi to the outside world.
 The GPIO pins allow us to control electric circuits from the Raspberry Pi.
