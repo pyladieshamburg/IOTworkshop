@@ -2,7 +2,11 @@
 
 In order to get some results really fast we are starting with a visual approach and with 3rd party tools, like PubNub which is a data stream network. We can publish the sensor readings there and then read them in nice static dashboards. For this we will follow some of the steps in their [blog](https://www.pubnub.com/blog/raspberry-pi-humidity-temperature-sensor-dashboard-dht-22-sensor/), but the code is refering to older versions so we got the updated one.
 
-So let's [make free PubNub accounts](https://dashboard.pubnub.com/signup?), with the free accounts we can access about 7 days of data in the past, this should be fine for showcasing this.
+So let's [make free PubNub accounts](https://dashboard.pubnub.com/signup?).
+
+After creating your account add a new key, you can choose a personalized name for your key, but it's necessary to enable the following configurations:
+
+![config_pubnub](pubnub-config-page.png)
 
 How it works: we publish data from the sensor readings to pubnub channels and by subscribing to these channels we can read the data from anywhere else.
 
@@ -16,16 +20,39 @@ sudo pip3 install pubnub
 
 ## Configuration
 
-You should now fork this repo.
+You should now either clone or fork this repo.
+
+**To clone the repo:**
 
 ```bash
 # using SSH
 git clone git@github.com:pyladieshamburg/IOTworkshop.git
 ```
 
-On your pubnub account create a new key set where you specify 7 days of storage. **Later** (in [visualization](data_visualization) section) you will need to update the html file with your subscriber key. As we are only publishing weather data we will leave this now in html in plain sight. Do not do this with any other data.
+**To fork the repo:**
 
-Clone your forked repo to your Raspberry Pi.
+You should see a small button written "Fork" in the home page of this repository (https://github.com/pyladieshamburg/IOTworkshop).
+
+**Configuring the PubNub settings:**
+
+Create a new file anywhere you want called `pubnub.ini` with your settings, using the template format. The template format is this:
+
+```
+[DEFAULT]
+subscribe_key = my_sub_...
+publish_key = my_pub_...
+```
+
+You should add your sub and pub keys that you can find in the PubNub website exactly how the template states. Do not add any quotes or change it in any way.
+
+Update the html file with your subscriber key. The html file has two lines that needs to be changed, it's necessary that you add your sub keys there.
+
+As we are only publishing weather data we will leave this now in html in plain sight. Do not do this with any other data.
+
+
+**Adding the information to your RaspberryPi:**
+
+Add this Github directory to your Raspberry. You can either clone it again in your Rasp or just copy and paste your current directory there.
 
 ```bash
 git clone ..repo link..
@@ -40,13 +67,19 @@ cp pubnub_template.ini pubnub.ini #this will copy the template into a new file
 nano (or vim) pubnub.ini
 ```
 
-now you an update pubnub.ini with your publisher and subsciber keys.
+Copy the `pubnub.ini` to your RaspberryPi, it will not be part of the repo.
 
-Run the publisher:
+The `pubnub.ini` contain sensitive information and you might want to leave it out of the internet not uploading it to your git repository. To do that it's necessary to create a `.gitignore` file inside your Github repository. Open the file and write `pubnub.ini` in it. And that's it! This file tells git which files it should ignore and pretend that are not there, as the name suggests.
+
+**Run the publisher:**
 
 ```bash
 python3 send-pubnub.py
 ```
+
+This will publish data every 5 minutes.
+
+Pro tip: you can change the update frequency by changing the `time.sleep(300)` function. 300 here stands for 300 seconds.
 
 This will publish data every 5 minutes and print that.
 
