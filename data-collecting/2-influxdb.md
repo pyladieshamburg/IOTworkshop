@@ -71,7 +71,7 @@ Telegraf parses log data via grok, which is a powerful parser used by all sorts 
 To run this telegraf:
 
 ```bash
-nohup telegraf --config temperature-logging.conf
+nohup telegraf --config /home/pi/IOTworkshop/data-collecting/temperature-logging.conf
 ```
 
 use nohup to run in the background
