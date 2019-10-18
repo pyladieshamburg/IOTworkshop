@@ -75,7 +75,7 @@ $ cat .ssh/id_rsa.pub
 
 Copy the output and add it to your github account under settings/SSH and GPG keys. Like this you can access your github repos from the raspberry pi without having to login all the time.
 
-# Liniking your local machine to your raspberry pi
+# Linking your local machine to your raspberry pi
 
 In order to log on to the raspberry pi without having to always type in the password you can repeat the above step from your local machine...
 
