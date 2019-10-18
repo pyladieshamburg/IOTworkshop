@@ -105,4 +105,4 @@ venv.bak/
 
 #private files
 private/
-working-with-pubnub/pubnub.ini
+data-collecting/pubnub.ini

@@ -29,7 +29,7 @@ def callback(message):
 
 while True:
     try:
-        h,t = dht.read_retry(dht.DHT11, 4)
+        h,t = dht.read_retry(dht.DHT22, 4)
         envelope = pubnub.publish().channel('tempeon').message({
                 'x': time.time(),
                 'temperature_celsius': t}).sync()
@@ -38,7 +38,7 @@ while True:
                 'x': time.time(),
                 'humidity': h
             }).sync()
-        print("publish timetoken: %d" % envelope.result.timetoken)
+        print("publish timetoken: %d" % envelope2.result.timetoken)
         #logging
         #logging.info('Temp={0:0.1f} C and Humidity={1:0.1f} %'.format(t, h)) 
         #wait 5 mins
