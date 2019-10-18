@@ -1,4 +1,4 @@
-## Setting up the your brand new Raspberry Pi
+## Setting up your brand new Raspberry Pi
 
 There are two ways to setup a new Raspberry Pi. With connection to peripherals (monitor, keyboard, mouse) or headless.
 The first step of flashing an image of Raspian OS onto an SD card is the same for both ways.
