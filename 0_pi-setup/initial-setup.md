@@ -1,4 +1,4 @@
-## Setting up the your brand new Raspberry Pi
+## Setting up your brand new Raspberry Pi
 
 There are two ways to setup a new Raspberry Pi. With connection to peripherals (monitor, keyboard, mouse) or headless.
 The first step of flashing an image of Raspian OS onto an SD card is the same for both ways.
@@ -75,7 +75,7 @@ $ cat .ssh/id_rsa.pub
 
 Copy the output and add it to your github account under settings/SSH and GPG keys. Like this you can access your github repos from the raspberry pi without having to login all the time.
 
-# Liniking your local machine to your raspberry pi
+# Linking your local machine to your raspberry pi
 
 In order to log on to the raspberry pi without having to always type in the password you can repeat the above step from your local machine...
 
