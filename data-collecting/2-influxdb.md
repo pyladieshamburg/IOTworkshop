@@ -6,7 +6,7 @@ One way to do this though, bringing us in the devopsy realm, is with [influxdb](
 
 InfluxDb is a time series database thus ideal for collecting sensor data and other metrics like CPU and Memory Usage. Writing directly to influxdb is a bit more work that we will circumvent by writing to a log file from which we will read via telegraf.
 
-First of all we will uncomment the lines of code in our `send-pubnub.py` script that refer to logging. This means that we will log the measurements and at the same time keep sending them to pubnub. We will log them into a log file which we specify. (Its also important to check that this log file is added to .gitignore)
+First of all we will uncomment the lines of code in our `send-pubnub.py` script that refer to logging. This means that we will log the measurements and at the same time keep sending them to pubnub. We will log them into a log file which we specify. (Its also important to uncomment the line at .gitignore for this file)
 
 Create a new folder for the logs on your RaspberryPi run the following command:
 
