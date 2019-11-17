@@ -74,7 +74,7 @@ To run this telegraf:
 nohup telegraf --config /home/pi/IOTworkshop/data-collecting/temperature-logging.conf
 ```
 
-use nohup to run in the background
+We are using [nohup](https://linux.die.net/man/1/nohup) to run the command in the background
 
 # Checking out the data
 
