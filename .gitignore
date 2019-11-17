@@ -106,4 +106,3 @@ venv.bak/
 #private files
 private/
 data-collecting/pubnub.ini
-#data-collecting/send-pubnub.py
